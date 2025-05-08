@@ -16,6 +16,11 @@ return {
       "scss",
       "blade",
       "php_only",
+      "markdown",
+      "json",
+      "yaml",
+      "dockerfile",
+      "gitignore"
       -- add more arguments for adding more treesitter parsers
     })
   end,
