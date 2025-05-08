@@ -15,6 +15,7 @@ return {
         "css-lsp",
         "tailwindcss-language-server",
         "intelephense",
+        "eslint-lsp",
 
         -- install formatters
         "stylua",
@@ -24,6 +25,7 @@ return {
 
         -- install debuggers
         -- "debugpy",
+        "js-debug-adapter",
 
         -- install any other package
         "tree-sitter-cli",
