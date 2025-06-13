@@ -8,7 +8,9 @@ return {
   { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
   { import = "astrocommunity.pack.blade" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
+
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.color.tint-nvim" },
   { import = "astrocommunity.media.vim-wakatime" },
