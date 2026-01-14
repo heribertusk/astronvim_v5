@@ -19,4 +19,5 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.git.git-blame-nvim" },
+  -- { import = "astrocommunity.terminal-integration.vim-tmux-yank" }, -- Disabled: conflicts with OSC52
 }
