@@ -26,8 +26,8 @@ return {
           "javascript",
           "php",
           "lua",
+          "blade",
           -- "ts",
-          -- "blade",
         },
         -- ignore_filetypes = { -- disable format on save for specified filetypes
         --   "python",
@@ -47,7 +47,7 @@ return {
       timeout_ms = 3600, -- default format timeout
       filter = function(client) -- fully override the default formatting function
         -- if vim.bo.filetype == "vue" then return client.name == "volar" end
-        if vim.bo.filetype == "blade" then return client.name == "blade-formatter" end
+        if vim.bo.filetype == "blade" then return client.name == "null-ls" end
         return true
       end,
     },
