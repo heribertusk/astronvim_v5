@@ -17,10 +17,10 @@ return {
         "intelephense",
         "eslint-lsp",
         "vtsls",
+        "taplo",
 
         -- install formatters
         "stylua",
-        "eslint_d",
         "blade-formatter",
         "pint",
 
