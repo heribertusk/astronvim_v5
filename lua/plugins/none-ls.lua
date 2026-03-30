@@ -12,10 +12,23 @@ return {
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
-      -- Set a formatter
-      require "none-ls.diagnostics.eslint_d",
-      require "none-ls.formatting.eslint_d",
-      require "none-ls.code_actions.eslint_d",
+      -- ESLint configuration with priority for local project eslint
+      -- This ensures each project uses its own ESLint version via node_modules
+      require("none-ls.diagnostics.eslint").with {
+        condition = function(utils)
+          return utils.root_has_file { ".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml", ".eslintrc.json", "eslint.config.js" }
+        end,
+      },
+      require("none-ls.formatting.eslint").with {
+        condition = function(utils)
+          return utils.root_has_file { ".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml", ".eslintrc.json", "eslint.config.js" }
+        end,
+      },
+      require("none-ls.code_actions.eslint").with {
+        condition = function(utils)
+          return utils.root_has_file { ".eslintrc", ".eslintrc.js", ".eslintrc.cjs", ".eslintrc.yaml", ".eslintrc.yml", ".eslintrc.json", "eslint.config.js" }
+        end,
+      },
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.blade_formatter,
       null_ls.builtins.formatting.pint,
