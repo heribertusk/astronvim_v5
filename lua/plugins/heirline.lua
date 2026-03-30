@@ -31,7 +31,7 @@ return {
       status.component.builder {
         {
           provider = function()
-            local triforce = require("triforce.lualine").level() .. "  " .. require("triforce.lualine").session_time()
+            local triforce = require("triforce.lualine").level()
             return status.utils.stylize(triforce, {
               padding = { right = 1 },
             })
