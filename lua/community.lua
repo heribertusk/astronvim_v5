@@ -20,4 +20,7 @@ return {
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
   { import = "astrocommunity.git.git-blame-nvim" },
   -- { import = "astrocommunity.terminal-integration.vim-tmux-yank" }, -- Disabled: conflicts with OSC52
+
+  -- AI Plugin (optional)
+  { import = "astrocommunity.ai.opencode-nvim" },
 }
