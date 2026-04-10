@@ -40,13 +40,13 @@ return {
         "intelephense", -- disable formatting by intelephense, using pint as php formatter
         "tsserver",
         "vtsls",
-        "volar",
+        -- "volar", -- enabled for .vue files formatting
         "prettierd",
         "prettier"
       },
       timeout_ms = 3600, -- default format timeout
       filter = function(client) -- fully override the default formatting function
-        -- if vim.bo.filetype == "vue" then return client.name == "volar" end
+        if vim.bo.filetype == "vue" then return client.name == "volar" end
         if vim.bo.filetype == "blade" then return client.name == "null-ls" end
         return true
       end,
@@ -63,7 +63,13 @@ return {
     -- customize how language servers are attached
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
+      function(server, opts)
+        opts.capabilities = vim.tbl_deep_extend("force", {}, opts.capabilities or {}, {
+          ---@diagnostic disable: missing-fields
+          colorProvider = vim.NIL,
+        })
+        require("lspconfig")[server].setup(opts)
+      end,
 
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server

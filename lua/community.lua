@@ -5,6 +5,7 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
+  version = "^5", -- Pin to v5 for AstroNvim v5 compatibility (last version is v20)
   -- import/override with your plugins folder
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.blade" },
